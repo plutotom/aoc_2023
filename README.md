@@ -1,7 +1,7 @@
 # aoc_2023
 
 Some helpful bash or zsh tools
-
+```
 # Add these to your ~/.zshrc
 
 AOC="~/Documents/Coding/AOC-2023" # remember to change this to whatever your AOC directory is
@@ -23,3 +23,4 @@ function aoc-load () {
         curl --cookie "session=$AOC_COOKIE" "$(date +https://adventofcode.com/%Y/day/%d/input)" > in.txt
     fi
 }
+```
