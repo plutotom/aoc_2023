@@ -15,49 +15,38 @@ const gameMax = {
   green: 13,
   red: 12,
 };
-let gameScores = data.map((game, gameIndex, gamesArr) => {
+let gamesScores = [];
+data.map((game, gameIndex, gamesArr) => {
   let gameColors = {
     green: 0,
     blue: 0,
     red: 0,
   };
   // looping though three colors
-  colors.forEach((colors, index, arr) => {
+  colors.forEach((color, index, arr) => {
     var lastIndex = 3;
+    var largestCurrentColor = 0;
     // loop until indexOf returns -1
     let tempGame = game;
-    colorIndex = tempGame.indexOf(colors);
+    colorIndex = tempGame.indexOf(color);
 
     while (colorIndex >= 0) {
-      console.log(parseColorNumber(colorIndex, tempGame));
-      if (parseColorNumber(colorIndex, tempGame) > gameMax[colors]) {
-        if (!badGame.includes(gameIds[gameIndex]))
-          badGame.push(gameIds[gameIndex]);
+      if (parseColorNumber(colorIndex, tempGame) > largestCurrentColor) {
+        largestCurrentColor = parseColorNumber(colorIndex, tempGame);
       }
-
       tempGame = tempGame.slice(colorIndex + 1);
-      colorIndex = tempGame.indexOf(colors);
+      colorIndex = tempGame.indexOf(color);
+    }
+    if (colorIndex <= 0) {
+      gameColors[color] += largestCurrentColor;
     }
   });
-
-  console.log(gameColors.blue);
-  console.log(gameColors.red);
-  console.log(gameColors.green);
-
-  console.log(gameMax.blue);
-  console.log(gameMax.red);
-  console.log(gameMax.green);
+  gamesScores.push(Object.values(gameColors).reduce((arc, curr) => arc * curr));
 });
-goodGame;
-badGame;
-gameIds.forEach((gameId) => {
-  gameId;
-  if (!badGame.includes(gameId)) {
-    goodGame.push(gameId);
-  }
-});
-goodGame = goodGame.reduce((acc, curr) => acc + curr, 0);
-goodGame; // old is 839
+
+gamesScores;
+gamesScores = gamesScores.reduce((acc, curr) => acc + curr, 0);
+gamesScores;
 
 function getGameIds(data) {
   gId = [];
