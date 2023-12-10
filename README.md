@@ -1,6 +1,7 @@
 # aoc_2023
 
 Some helpful bash or zsh tools
+
 ```
 # Add these to your ~/.zshrc
 
@@ -11,6 +12,7 @@ AOC_COOKIE="" # get this from the cookies tab in network tools on the AOC websit
 alias aos="cd $AOC; bun solution.js in.txt" # Runs solution.js with in.txt as input
 alias aot="cd $AOC; bun solution.js test.txt"
 alias aoc="aot; echo; aos"
+
 
 # Gets data from aoc using your token. 
 # @example aoc-load 2023 2 # get input data from 2023 day 2. 
