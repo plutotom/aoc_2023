@@ -13,8 +13,9 @@ alias aos="cd $AOC; bun solution.js in.txt" # Runs solution.js with in.txt as in
 alias aot="cd $AOC; bun solution.js test.txt"
 alias aoc="aot; echo; aos"
 
-# Gets data from aoc using your token.
-# @example aoc-load 2023 2 # get input data from 2023 day 2.
+
+# Gets data from aoc using your token. 
+# @example aoc-load 2023 2 # get input data from 2023 day 2. 
 # part 1 and part 2 use the same input.
 function aoc-load () {
     if [ $1 ]
